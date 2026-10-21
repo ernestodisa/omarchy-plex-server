@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "ernestodisa.plex",
+  "name": "Plex Server",
+  "version": "1.1.0",
+  "author": "ernestodisa",
+  "license": "MIT",
+  "description": "Estado del Plex Media Server local en la barra. Clic inicia/detiene, medio reinicia, derecho abre el menú (escanear librería, detener, reiniciar, web). El escaneo requiere plexToken en shell.json.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "PlexWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Plex Server",
+    "description": "Estado, inicio/detención, reinicio y escaneo de librería del Plex Media Server local",
+    "category": "Media",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "unit": "plexmediaserver.service",
+      "intervalSec": 10,
+      "httpPort": 32400,
+      "plexToken": ""
+    },
+    "schema": [
+      {
+        "key": "intervalSec",
+        "type": "integer",
+        "label": "Intervalo de refresco (segundos)",
+        "min": 3,
+        "max": 300,
+        "step": 1,
+        "defaultValue": 10
+      }
+    ]
+  }
+}
